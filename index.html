@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoboTech AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo-area">
+            <div class="logo-icon">B</div>
+            <div class="logo-text"><h1>BOBOTECH <span>AI</span></h1></div>
+        </div>
+        <button class="new-chat-btn" onclick="createNewChat()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            New Chat
+        </button>
+        <div class="recent-section">
+            <div style="font-size: 11px; margin-bottom: 8px; color: #94a3b8; text-transform: uppercase;">Recent Chats</div>
+            <div class="chat-history-box" id="chatHistoryBox">
+                <button class="chat-history-item active">Explain quantum computing...</button>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-navbar">
+            <nav class="nav-links">
+                <a href="#">Home</a>
+                <a href="#" class="active">Chat</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="owner-key-btn" onclick="openPasswordModal()" title="Set API Key">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </button>
+                <div class="user-profile"><img src="https://i.pravatar.cc/150?img=11" alt="User"></div>
+            </div>
+        </header>
+
+        <div class="chat-header">
+            <div class="ai-brand">
+                <div class="ai-logo-small">B</div>
+                <div class="ai-details"><h2>BoboTech AI <span class="tag-ai">AI</span></h2></div>
+            </div>
+            <button class="model-btn">GPT-4o</button>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+            <div class="message-row ai">
+                <div class="msg-avatar ai-avatar">B</div>
+                <div class="ai-content"><div class="message-bubble"><p>Hello! Click the lock icon to enter your password (310AA).</p></div></div>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-box">
+                <input type="text" id="userInput" placeholder="Type your message here..." onkeypress="handleEnter(event)">
+                <button class="send-btn" onclick="sendMessage()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal-overlay hidden" id="passwordModal">
+        <div class="modal-box">
+            <h3>Owner Access</h3>
+            <p id="passwordStatus">Enter password to unlock API settings.</p>
+            <input type="text" id="ownerPasswordInput" placeholder="Type 310AA here...">
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closePasswordModal()">Cancel</button>
+                <button class="btn-confirm" onclick="checkPassword()">Unlock</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
